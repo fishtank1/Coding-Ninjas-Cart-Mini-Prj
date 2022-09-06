@@ -25,6 +25,8 @@ class CartItem extends React.Component{
         query key it grabs it's previous value from prevState and we are free to do our desired operations 
         on it through that.
         */
+
+        // Both method 1 and 2 are async function or method and hence we can attach a callback func to it and perform more operations. 
        this.setState((prevState) => {
         return {
             qty: prevState.qty + 1
