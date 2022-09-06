@@ -12,8 +12,35 @@ class CartItem extends React.Component{
     }
 
     increaseQuantity = () => {
-        this.state.qty += 1;
-        console.log(this.state.qty); 
+        // this.state.qty += 1; increments but does not re-renders the value
+        /* 
+        method 1: this way it updates as well as re-renders the value on screen 
+        this method is called shallow merging, in this type only the state change 
+        is made no extra work just mention the place and it will go and do the work.
+        */
+        // this.setState({ qty: this.state.qty + 1 });
+
+        /*
+        method 2: in this method it itrates over the key's and upon reaching the matching 
+        query key it grabs it's previous value from prevState and we are free to do our desired operations 
+        on it through that.
+        */
+       this.setState((prevState) => {
+        return {
+            qty: prevState.qty + 1
+        }
+       });
+    } 
+
+    decreaseQuantity = () => {
+        if(this.state.qty == 0) return;
+        else {
+            this.setState((prevState) => {
+                return {
+                    qty: prevState.qty - 1
+                }
+            });
+        }
     }
 
     render() {
