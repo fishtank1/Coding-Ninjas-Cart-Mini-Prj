@@ -26,7 +26,7 @@ class CartItem extends React.Component{
         on it through that.
         */
 
-        // Both method 1 and 2 are async function or method and hence we can attach a callback func to it and perform more operations. 
+        // Both method 1(object form) and 2(callback form) are async function or method and hence we can attach a callback func to it and perform more operations. 
        this.setState((prevState) => {
         return {
             qty: prevState.qty + 1
