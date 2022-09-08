@@ -1,16 +1,7 @@
 import React from 'react';
+import Cart from './Cart';
 
 class CartItem extends React.Component{
-    constructor() {
-        super(); /* Since we are inheriting properties from React and in inheritance if I call the child class before calling parent then the properties of parent's won't be accessible to the child hence we call parent first and then we call the child constructor */
-        this.state = {
-            price: 999,
-            title: 'Phone',
-            qty: 1,
-            img: ''
-        }
-    }
-
     increaseQuantity = () => {
         // this.state.qty += 1; increments but does not re-renders the value
         /* 
@@ -46,11 +37,12 @@ class CartItem extends React.Component{
     }
 
     render() {
-        const { price, title, qty } = this.state; /* Object destructuring */
+        console.log('this.props.product', this.props.products);
+        const { title, price, qty, id, img } = this.props.products; /* Object destructuring */
         return (
             <div className='cart-item'>
                 <div className='left-block'>
-                    <img style={styles.image}/>
+                    <img src={img} style={styles.image}/>
                 </div>
                 <div className='right-block'>
                     <div style={ {fontSize: 25}  }>{title}</div>
